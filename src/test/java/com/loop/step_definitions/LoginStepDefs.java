@@ -25,4 +25,17 @@ public class LoginStepDefs {
         System.out.println("test");
     }
 
-}
+    @When("user enters username for advisor")
+    public void user_enters_username_for_advisor() {
+        System.out.println("test");
+    }
+    @When("user enter password for advisor")
+    public void user_enter_password_for_advisor() {
+        System.out.println("test");
+    }
+    @Then("user should be able to login as a advisor")
+    public void user_should_be_able_to_login_as_a_advisor() {
+        System.out.println("test");
+    }
+
+    }
