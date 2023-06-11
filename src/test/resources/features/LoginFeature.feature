@@ -1,4 +1,8 @@
 Feature: Docuport login Feature
+
+  Background: for each scenario
+
+
   @smoke @client
   Scenario: Login as a client
     Given user is on Docuport login page
@@ -7,7 +11,7 @@ Feature: Docuport login Feature
     And user clicks login button
     Then user should be able to login as a client
 
-    @smoke @advisor
+  @smoke @advisor
   Scenario: Login as a advisor
     Given user is on Docuport login page
     When user enters username for advisor
