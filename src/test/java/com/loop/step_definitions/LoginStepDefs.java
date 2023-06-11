@@ -1,12 +1,16 @@
 package com.loop.step_definitions;
 
 import io.cucumber.java.en.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class LoginStepDefs {
 
+    public static final Logger LOG = LogManager.getLogger();
+
     @Given("user is on Docuport login page")
     public void user_is_on_docuport_login_page() {
-        System.out.println("test");
+        LOG.info("from log 4j");
     }
     @When("user enters username for client")
     public void user_enters_username_for_client() {
