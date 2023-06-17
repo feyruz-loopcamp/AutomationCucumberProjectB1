@@ -18,6 +18,7 @@ Feature: Docuport login Feature
     And user enter password for advisor
     And user clicks login button
     Then user should be able to login as a advisor
+    Then sample
 
 
 

@@ -12,7 +12,6 @@ public class Hooks {
 
     @Before
     public void setup(){
-
         Driver.getDriver();
     }
 
@@ -22,7 +21,7 @@ public class Hooks {
         if (scenario.isFailed()) {
             // taking a screenshot
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Screenshot");
+            scenario.attach(screenshot, "image/png", scenario.getName());
            // scenario.embed(screenshot, "image/png");
         }
         Driver.closeDriver();
