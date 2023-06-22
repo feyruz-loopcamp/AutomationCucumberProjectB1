@@ -12,6 +12,9 @@ public class GooglePage {
     @FindBy(xpath = "//input[@id='gbqfbb']/preceding-sibling::input")
     public WebElement searhcButton;
 
+    @FindBy(xpath="//a[@class='FLP8od']")
+    public WebElement capitalCity;
+
 
 
 

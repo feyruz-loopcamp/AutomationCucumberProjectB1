@@ -3,10 +3,17 @@ package com.loop.step_definitions;
 import com.loop.pages.GooglePage;
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.bouncycastle.asn1.cms.KEKIdentifier;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+
+import javax.swing.*;
+import java.util.List;
 
 
 public class GoogleSearchStepDefs {
@@ -35,5 +42,23 @@ public class GoogleSearchStepDefs {
     @Then("User should see {string} search is in the google title")
     public void user_should_see_search_is_in_the_google_title(String input) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(input));
+    }
+
+    @Then("user search the following items")
+    public void user_search_the_following_items(List <String> items) {
+        items.forEach(p -> {googlePage.searchBox.clear();
+                            googlePage.searchBox.sendKeys(p + Keys.ENTER);
+                            Assert.assertTrue(Driver.getDriver().getTitle().contains(p));
+                            });
+    }
+
+    @When("users search for the {string}")
+    public void users_search_for_the(String country) throws InterruptedException {
+        googlePage.searchBox.sendKeys("What is the capiyal of " + country + Keys.ENTER);
+        Thread.sleep(3000);
+    }
+    @Then("user should see the {string} in the result")
+    public void user_should_see_the_in_the_result(String capital) {
+        Assert.assertEquals(googlePage.capitalCity.getText(), capital);
     }
 }
