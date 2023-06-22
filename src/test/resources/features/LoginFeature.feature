@@ -10,7 +10,7 @@ Feature: Docuport Login Logout Feature
     And user clicks login button
     Then user should see the home page for client
 
-  @regression @wip
+  @regression
   Scenario: Login as a employee
     When user enters username for employee
     And user enters password for employee
