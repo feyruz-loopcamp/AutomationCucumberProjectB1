@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue = "com/loop/step_definitions",
         dryRun = false,
         tags = "@smoke",
-        monochrome = false
+        monochrome = true
 )
 public class CukesRunner {
 }
