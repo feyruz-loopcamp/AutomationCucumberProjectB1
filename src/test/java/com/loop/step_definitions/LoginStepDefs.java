@@ -11,6 +11,8 @@ import io.cucumber.java.en.*;
 import io.cucumber.messages.types.Exception;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
@@ -22,7 +24,7 @@ public class LoginStepDefs {
     @When("user enters username for client")
     public void user_enters_username_for_client() throws InterruptedException {
         BrowserUtils.waitForClickable(loginPage.loginButton, 10);
-        loginPage.loginInput.sendKeys(DocuportConstants.USERNAME_CLIENT);
+        loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_CLIENT);
     }
     @When("user enters password for client")
     public void user_enters_password_for_client() {
@@ -75,6 +77,17 @@ public class LoginStepDefs {
     @When("user enters username for admin")
     public void user_enters_username_for_admin() {
 
+    }
+
+    @When("user enters credentials")
+    public void user_enters_credentials(Map<String, String> credentials) throws InterruptedException {
+//        loginPage.usernameInput.sendKeys(credentials.get("username"));
+//        loginPage.passwordInput.sendKeys(credentials.get("password"));
+//        Thread.sleep(3000);
+//        loginPage.loginButton.click();
+//        Thread.sleep(3000);
+
+        loginPage.loginDocuport(credentials.get("username"), credentials.get("password"));
     }
 
 
