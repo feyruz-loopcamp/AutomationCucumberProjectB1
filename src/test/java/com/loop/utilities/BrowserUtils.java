@@ -9,7 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertTrue;
 
@@ -163,10 +166,18 @@ public class BrowserUtils {
 
 
 
+    /**
+     *
+     * @param elements
+     * @return
+     */
 
 
-
-
+    public static List<String> getElementsText(List<WebElement> elements) {
+        return elements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
 
 
 

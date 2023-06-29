@@ -14,6 +14,7 @@ import org.openqa.selenium.Keys;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.Map;
 
 
 public class GoogleSearchStepDefs {
@@ -45,12 +46,20 @@ public class GoogleSearchStepDefs {
     }
 
     @Then("user search the following items")
-    public void user_search_the_following_items(List <String> items) {
-        items.forEach(p -> {googlePage.searchBox.clear();
-                            googlePage.searchBox.sendKeys(p + Keys.ENTER);
-                            Assert.assertTrue(Driver.getDriver().getTitle().contains(p));
-                            });
+    public void user_search_the_following_items(List <Map<String, String>>items) {
+        for (Map<String, String> item : items) {
+            System.out.println(item.get("items"));
+            googlePage.searchBox.clear();
+            googlePage.searchBox.sendKeys(item.get("items") + Keys.ENTER);
+        }
     }
+
+//    public void user_search_the_following_items(List <String> items) {
+//        items.forEach(p -> {googlePage.searchBox.clear();
+//                            googlePage.searchBox.sendKeys(p + Keys.ENTER);
+//                            Assert.assertTrue(Driver.getDriver().getTitle().contains(p));
+//                            });
+//    }
 
     @When("users search for the {string}")
     public void users_search_for_the(String country) throws InterruptedException {

@@ -1,6 +1,6 @@
 Feature: practice scenario outline
 
-  @wip
+
   Scenario: User should be bale to place order and order should be seen in page
     Given user is already logged in and navigated to order page
     When user selects product type "FamilyAlbum"
@@ -15,4 +15,24 @@ Feature: practice scenario outline
     And user enters expiration date "12/25"
     And user enters process order button
     Then user should see "Chuck Norris" in the first row of the table
+
+
+  Scenario Outline: User should be bale to place order and order should be seen in page
+    Given user is already logged in and navigated to order page
+    When user selects product type "<productTyoe>"
+    And user enters quantity "<quantity>"
+    And user enters customer name "<customerName>"
+    And user enters street "<street>"
+    And user enters city "<city>"
+    And user enters state "<state>"
+    And user enters zip "<zip>"
+    And user selects credit card type "<cardType>"
+    And user enters credit car number "<cardNumber>"
+    And user enters expiration date "<exp>"
+    And user enters process order button
+    Then user should see "<customerName>" in the first row of the table
+    Examples:
+      | productTyoe | quantity | customerName | street | city | state | zip | cardType | cardNumber | exp |
+
+
 
