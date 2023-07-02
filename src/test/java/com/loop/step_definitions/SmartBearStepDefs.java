@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.reporters.jq.INavigatorPanel;
+
 
 import javax.swing.*;
 import java.security.Key;

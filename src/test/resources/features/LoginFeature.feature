@@ -31,11 +31,11 @@ Feature: Docuport Login Logout Feature
     And user clicks login button
     Then user should see the home page for admin
 
-
+@regression
   Scenario: Login as an client map practice
     When user enters credentials
       | username | b1g1_client@gmail.com |
-      | password | Group1                |
+      | password | group1                |
     Then user should see the home page for client
 
 

@@ -4,7 +4,7 @@ Feature: Passing multiple parameters to the same step
   Scenario: Searching multiple items
     Given user is on Google search page
     Then user search the following items
-      |items|
+      | items        |
       | loop academy |
       | java         |
       | selenium     |

@@ -28,7 +28,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
            // scenario.embed(screenshot, "image/png");
         }
-      //  Driver.closeDriver();
+       Driver.closeDriver();
         LOG.info("...........END AUTOMATION.......LOOP ACADEMY.....");
     }
 

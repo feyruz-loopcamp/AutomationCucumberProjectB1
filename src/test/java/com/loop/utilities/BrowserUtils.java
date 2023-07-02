@@ -1,5 +1,6 @@
 package com.loop.utilities;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static org.testng.Assert.assertTrue;
+
 
 public class BrowserUtils {
 
@@ -37,7 +38,7 @@ public class BrowserUtils {
                 break;
             }
         }
-        assertTrue(driver.getTitle().toLowerCase().contains(expectedTitle));
+        Assert.assertTrue(driver.getTitle().toLowerCase().contains(expectedTitle));
     }
 
 
@@ -63,7 +64,7 @@ public class BrowserUtils {
      * @authot nadir
      */
     public static void validateTitle(WebDriver driver, String expectedTitle){
-        assertTrue(driver.getTitle().contains(expectedTitle));
+        Assert.assertTrue(driver.getTitle().contains(expectedTitle));
     }
 
     /**
