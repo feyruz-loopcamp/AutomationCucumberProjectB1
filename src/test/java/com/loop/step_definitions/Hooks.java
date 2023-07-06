@@ -1,6 +1,7 @@
 package com.loop.step_definitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import com.loop.utilities.*;
 import io.cucumber.java.Scenario;
@@ -30,6 +31,12 @@ public class Hooks {
         }
        Driver.closeDriver();
         LOG.info("...........END AUTOMATION.......LOOP ACADEMY.....");
+    }
+
+    @AfterStep
+    public void screenShot(Scenario scenario){
+        final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", scenario.getName());
     }
 
 }
