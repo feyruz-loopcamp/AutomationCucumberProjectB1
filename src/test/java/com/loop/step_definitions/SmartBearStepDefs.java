@@ -6,6 +6,7 @@ import com.loop.pages.SmartBearOrderPage;
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -22,19 +23,24 @@ public class SmartBearStepDefs {
 
     SmartBearOrderPage orderPage = new SmartBearOrderPage();
 
+    private SoftAssertions softAssertions = new SoftAssertions();
+
+
+
     @Given("user is already logged in and navigated to order page")
     public void user_is_already_logged_in_to_order_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("smart.bear"));
         loginPage.login(ConfigurationReader.getProperty("smart.username"), ConfigurationReader.getProperty("smart.password"));
         Assert.assertTrue(basePage.webOrders.isDisplayed());
         basePage.order.click();
-        Assert.assertTrue(orderPage.orderHeading.isDisplayed());
+        softAssertions.assertThat(orderPage.orderHeading.isDisplayed()).isTrue();
     }
 
     @When("user selects product type {string}")
     public void user_selects_product_type(String product) throws InterruptedException {
         Select dropdown = new Select(orderPage.product);
         dropdown.selectByValue(product);
+        softAssertions.assertThat(5==5).isTrue();
     }
 
     @When("user enters quantity {int}")
@@ -94,7 +100,7 @@ public class SmartBearStepDefs {
 
     @Then("user should see {string} in the first row of the table")
     public void user_should_see_in_the_first_row_of_the_table(String string) {
-
+        softAssertions.assertAll();
     }
 
 }

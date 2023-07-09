@@ -1,6 +1,6 @@
 Feature: product practice
 
-  @wip
+
   Scenario: verify each product price
     Given User is on the HomePage
     Then User should be able to see expected prices in following products

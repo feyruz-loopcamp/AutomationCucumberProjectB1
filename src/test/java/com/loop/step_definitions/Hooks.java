@@ -29,11 +29,11 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
            // scenario.embed(screenshot, "image/png");
         }
-       Driver.closeDriver();
+       // Driver.closeDriver();
         LOG.info("...........END AUTOMATION.......LOOP ACADEMY.....");
     }
 
-    @AfterStep
+   // @AfterStep
     public void screenShot(Scenario scenario){
         final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", scenario.getName());
